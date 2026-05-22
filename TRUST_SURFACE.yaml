@@ -1,0 +1,72 @@
+version: v0.2
+claim_grade: C0
+repo: SocioProphet/ns-program
+purpose: >-
+  Declare current and future trust surfaces for the ns-program v0.2
+  strategic-direction tranche.
+
+current_trust_surface:
+  document_only: true
+  executable_diagnostics_present: false
+  live_target_actions: false
+  network_access: false
+  credential_access: false
+  payload_delivery: false
+  mutation_against_external_targets: false
+  destructive_behavior: false
+
+current_authority:
+  docs:
+    status: authoritative_for_v0_2_scope
+    paths:
+      - docs/program-spec/navier-stokes-program-v0_2.md
+      - docs/scope/ns-program-bridge-citation.md
+      - docs/scope/v0.2-non-claim-box.md
+      - docs/foundations/2d-ns-anchor.md
+      - docs/workstream-a/README.md
+      - docs/workstream-b/README.md
+      - docs/workstream-b/literature/bhmr-2008-and-extensions.md
+      - docs/workstream-b/candidate-c-bulk-equation.md
+      - docs/workstream-b/candidate-c-projection.md
+      - docs/workstream-c/README.md
+      - docs/workstream-c/he-phys-001-as-bulk.md
+      - docs/workstream-c/he-int-001-projection.md
+      - docs/workstream-d/README.md
+      - docs/correspondence/c-d-conjectured-correspondence.md
+      - docs/anti-seed-ns.md
+      - docs/capture/capture-gap-matrix.md
+  tests:
+    status: structural_validation_only
+    paths:
+      - tests/test_pfk_dependency.py
+  ci:
+    status: dependency_and_structure_validation_only
+    paths:
+      - .github/workflows/ns-program-pfk-dependency.yml
+
+future_d8_diagnostic_requirements:
+  executable_code_allowed_only_after_policy_declaration: true
+  required_artifacts:
+    - RunSpec
+    - RunReceipt
+    - input_traces
+    - output_traces
+    - artifact_hashes
+    - diagnostic_status
+  required_controls:
+    - no_live_target_actions
+    - no_network_access_unless_explicitly_declared
+    - no_credential_access
+    - no_payload_delivery
+    - no_destructive_behavior
+    - pinned_dependency_versions
+    - reproducible_local_or_ci_fixture
+
+claim_boundaries:
+  no_clay_direction_commitment: true
+  no_navier_stokes_regularity_theorem: true
+  no_candidate_c_success_claim_before_d8: true
+  no_candidate_d_success_claim_before_d8: true
+  no_candidate_c_d_equivalence_claim: true
+  no_time_theory_in_v0_2: true
+  he_phys_001_reserved_unless_file_level_pinned_evidence_exists: true
